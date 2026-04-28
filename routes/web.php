@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ConsultasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+Route::get('/area-teachers', [ConsultasController::class, 'areaTeachers']);
+Route::get('/course-teachers', [ConsultasController::class, 'courseTeachers']);
+Route::get('/teacher-courses', [ConsultasController::class, 'teacherCourses']);
+Route::get('/apprentices', [ConsultasController::class, 'apprenticesInfo']);
