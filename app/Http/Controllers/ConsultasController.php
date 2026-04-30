@@ -3,33 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\User;
-use App\Models\Areas;
-use App\Models\Teachers;
-use App\Models\Courses;
 use App\Models\Apprentices;
 
 class ConsultasController extends Controller
 {
     //
-public function areaTeachers() {
-    $area = Areas::with('teachers')->find(1);
-    return $area;
-}
+    public function index() {
+        $apprentices = Apprentices::with([
+            'computer',
+            'course.area',
+            'course.trainingCenter',
+            'course.teachers'
+        ])->first();
 
-public function courseTeachers() {
-    $course = Courses::with('teachers')->find(1);
-    return $course;
-}
+        return response()->json($apprentices);
+    }
 
-public function teacherCourses() {
-    $teacher = Teachers::with('courses')->find(1);
-    return $teacher;
-}
+    public function show($id)
+    {
+        $apprentice = Apprentices::with([
+            'computer',
+            'course.area',
+            'course.trainingCenter',
+            'course.teachers'
+        ])->find($id);
 
-public function apprenticesInfo() {
-    $apprentices = Apprentices::with(['courses', 'computers'])->get();
-    return $apprentices;
-}
-}
+        return response()->json($apprentice); 
+        }
+    }

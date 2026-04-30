@@ -21,8 +21,5 @@ Route::get('/', function () {
 
 
 
-
-Route::get('/area-teachers', [ConsultasController::class, 'areaTeachers']);
-Route::get('/course-teachers', [ConsultasController::class, 'courseTeachers']);
-Route::get('/teacher-courses', [ConsultasController::class, 'teacherCourses']);
-Route::get('/apprentices', [ConsultasController::class, 'apprenticesInfo']);
+Route::get('/consultas', [ConsultasController::class, 'index']);
+Route::get('/consultas/{id}', [ConsultasController::class, 'show']);

@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Areas;
+use App\Models\Training_centers;
+use App\Models\Apprentices;
+use App\Models\Teachers;    
 
 class courses extends Model
 {
